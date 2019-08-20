@@ -25,8 +25,8 @@ const (
 	githubClientSecretEnvVar = "GITHUB_CLIENT_SECRET"
 )
 
+// Server Config
 const (
-	// Server Config
 	ConfigProject           = "project"
 	ConfigTrustProxyHeaders = "trust_proxy_headers"
 	ConfigBindAddress       = "http"

@@ -23,6 +23,7 @@ func newGCELogger(cli *logging.Logger) *GCELogger {
 	return &GCELogger{cli}
 }
 
+// GCELogger is a logger
 type GCELogger struct {
 	cli *logging.Logger
 }

@@ -159,8 +159,8 @@ func (e NotModifiedError) Error() string {
 
 var errNoMatch = errors.New("no match")
 
-// service represents a source code control service.
-type service struct {
+// Service represents a source code control service.
+type Service struct {
 	pattern         *regexp.Regexp
 	prefix          string
 	get             func(context.Context, *http.Client, map[string]string, string) (*Directory, error)
@@ -168,17 +168,17 @@ type service struct {
 	getProject      func(context.Context, *http.Client, map[string]string) (*Project, error)
 }
 
-var services []*service
+var services []*Service
 
-func addService(s *service) {
+func addService(s *Service) {
 	if s.prefix == "" {
 		services = append(services, s)
 	} else {
-		services = append([]*service{s}, services...)
+		services = append([]*Service{s}, services...)
 	}
 }
 
-func (s *service) match(importPath string) (map[string]string, error) {
+func (s *Service) match(importPath string) (map[string]string, error) {
 	if !strings.HasPrefix(importPath, s.prefix) {
 		return nil, nil
 	}

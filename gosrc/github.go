@@ -18,7 +18,7 @@ import (
 )
 
 func init() {
-	addService(&service{
+	addService(&Service{
 		pattern:         regexp.MustCompile(`^github\.com/(?P<owner>[a-z0-9A-Z_.\-]+)/(?P<repo>[a-z0-9A-Z_.\-]+)(?P<dir>/.*)?$`),
 		prefix:          "github.com/",
 		get:             getGitHubDir,
@@ -26,7 +26,7 @@ func init() {
 		getProject:      getGitHubProject,
 	})
 
-	addService(&service{
+	addService(&Service{
 		pattern: regexp.MustCompile(`^gist\.github\.com/(?P<gist>[a-z0-9A-Z_.\-]+)\.git$`),
 		prefix:  "gist.github.com/",
 		get:     getGistDir,

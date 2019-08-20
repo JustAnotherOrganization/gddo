@@ -288,7 +288,7 @@ func TestGetDynamic(t *testing.T) {
 		services = savedServices
 		getVCSDirFn = savedGetVCSDirFn
 	}()
-	services = []*service{{pattern: regexp.MustCompile(".*"), get: testGet}}
+	services = []*Service{{pattern: regexp.MustCompile(".*"), get: testGet}}
 	getVCSDirFn = testGet
 	client := &http.Client{Transport: testTransport(testWeb)}
 

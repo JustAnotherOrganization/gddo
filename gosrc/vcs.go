@@ -26,7 +26,7 @@ import (
 )
 
 func init() {
-	addService(&service{
+	addService(&Service{
 		pattern: regexp.MustCompile(`^(?P<repo>(?:[a-z0-9.\-]+\.)+[a-z0-9.\-]+(?::[0-9]+)?/[A-Za-z0-9_.\-/]*?)\.(?P<vcs>bzr|git|hg|svn)(?P<dir>/[A-Za-z0-9_.\-/]*)?$`),
 		prefix:  "",
 		get:     getVCSDir,
