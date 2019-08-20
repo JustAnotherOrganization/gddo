@@ -41,7 +41,7 @@ const (
 	checkoutTimeout = 1 * time.Minute
 )
 
-// Store temporary data in this directory.
+// TempDir will store temporary data in this directory.
 var TempDir = filepath.Join(os.TempDir(), "gddo")
 
 type urlTemplates struct {

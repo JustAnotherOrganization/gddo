@@ -12,6 +12,7 @@ import (
 	"time"
 )
 
+// Presentation represents a presentation
 type Presentation struct {
 	Filename string
 	Files    map[string][]byte

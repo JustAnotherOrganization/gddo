@@ -20,6 +20,7 @@ import (
 	"time"
 )
 
+// ExpiresAfter is an expiration
 const ExpiresAfter = 2 * 365 * 24 * time.Hour // Package with no commits and imports expires.
 
 // File represents a file.
@@ -34,8 +35,10 @@ type File struct {
 	BrowseURL string
 }
 
+// DirectoryStatus is a type representing the status of the repository
 type DirectoryStatus int
 
+// Directory Statuses
 const (
 	Active          DirectoryStatus = iota
 	DeadEndFork                     // Forks with no commits
@@ -126,6 +129,7 @@ func IsNotFound(err error) bool {
 	return ok
 }
 
+// RemoteError is the error a Remote will give
 type RemoteError struct {
 	Host string
 	err  error
@@ -135,11 +139,13 @@ func (e *RemoteError) Error() string {
 	return e.err.Error()
 }
 
+// NotModifiedError is an error given when not modified
 type NotModifiedError struct {
 	Since  time.Time
 	Status DirectoryStatus
 }
 
+// Error will give back and format the error
 func (e NotModifiedError) Error() string {
 	msg := "package not modified"
 	if !e.Since.IsZero() {
@@ -477,6 +483,7 @@ func getStatic(ctx context.Context, client *http.Client, importPath, etag string
 	return nil, errNoMatch
 }
 
+// Get will go fetch the path
 func Get(ctx context.Context, client *http.Client, importPath string, etag string) (dir *Directory, err error) {
 	switch {
 	case localPath != "":

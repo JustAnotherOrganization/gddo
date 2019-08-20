@@ -52,7 +52,7 @@ type bitbucketSrc struct {
 }
 
 type bitbucketPage struct {
-	Next string `json:"next",omitempty`
+	Next string `json:"next,omitempty"`
 }
 
 func getBitbucketDir(ctx context.Context, client *http.Client, match map[string]string, savedEtag string) (*Directory, error) {

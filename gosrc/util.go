@@ -61,6 +61,7 @@ func isDocFile(n string) bool {
 
 var linePat = regexp.MustCompile(`(?m)^//line .*$`)
 
+// OverwriteLineComments will overwrite line comments
 func OverwriteLineComments(p []byte) {
 	for _, m := range linePat.FindAllIndex(p, -1) {
 		for i := m[0] + 2; i < m[1]; i++ {
